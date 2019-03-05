@@ -8,21 +8,20 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-slides #productSlides>
+    <ion-slide *ngFor="let p of products">
+      <ion-grid>
+        <ion-row *ngFor="let image of p.images">
+          <ion-col col-12>
+            <ion-img width="100%" height="100%" src="{{image.src}}"></ion-img>
+            <h1 padding center [innerHtml]="p.name"></h1>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
 
-  <ion-grid>
-    <ion-row>
-      <ion-slides #productSlides>
-        <ion-slide *ngFor="let p of products">
-          <ion-card no-padding *ngFor="let image of p.images">
-            <img src="{{image.src}}">
-            <h1 padding center>{{p.name}}</h1>
-            <p padding center>{{p.short_description}}</p>
-          </ion-card>
-        </ion-slide>
-      </ion-slides>
-    </ion-row>
-  </ion-grid>
-  <img src="../../assets/imgs/adult-beautiful-black-friday-291762.jpg">
+  <ion-img width="100%" height="100%" style="margin-top: -40%" src="../../assets/imgs/1.jpg"></ion-img>
 
   <ion-list>
     <ion-item *ngFor="let p of productsMore">

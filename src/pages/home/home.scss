@@ -1,7 +1,21 @@
 page-home {
-  .ion-card{
-      margin: 0 !important;
-      width: 100% !important ;
-      height: 100% !important;
+  ion-content{
+    font-family: 'Open Sans', sans-serif !important;
+  }
+  
+  .row{
+    position: absolute !important;
+    top: 10% !important;
+    left: 10% !important;
+    text-align : center !important;
+  }
+  ion-img{
+    background: none !important;
+    min-height: 100px !important;
+  }
+
+
+  .list-ios{
+    margin: -300px 0 32px !important;
   }
 }
