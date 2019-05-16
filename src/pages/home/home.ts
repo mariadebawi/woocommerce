@@ -31,43 +31,8 @@ export class HomePage {
       console.log(err);
     });
 
-    this.loadMoreProducts(null);
   }
 
-  ionViewDidLoad() {
-    setInterval(() => {
-      if (this.productSlides.getActiveIndex() == this.productSlides.length() - 1)
-        this.productSlides.slideTo(0);
-      this.productSlides.slideNext();
-    }, 3000)
-  }
-
-  loadMoreProducts(event) {
-    console.log(event);
-    if (event == null) {
-      this.page = 2;
-      this.productsMore = [];
-    }
-    else
-      this.page++;
-
-    this.Woocommerce.getAsync('products?page=' + this.page).then((data) => {
-      console.log(JSON.parse(data.body));
-      this.productsMore = this.productsMore.concat(JSON.parse(data.body));
-      if (event != null) {
-        event.complete();
-      }
-      if (JSON.parse(data.body).length < 10) {
-        event.enable(false);
-        this.toast.create({
-         message : 'no more products' ,
-         duration : 3000
-        }).present() ;
-      }
-    }, (err) => {
-      console.log(err);
-    });
-  }
 }
 
 
